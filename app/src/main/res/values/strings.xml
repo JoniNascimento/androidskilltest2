@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Cinq</string>
+    <string name="txt_titulo_login">Informe suas credenciais para realizar o Login.</string>
+    <string name="txt_titulo_cadastrar">Crie sua conta.</string>
+    <string name="txv_login">Usuário:</string>
+    <string name="txv_senha">Senha:</string>
+    <string name="btn_logar">Entrar</string>
+    <string name="txv_realizar_cadastro">Não possui cadastro? Cadastre-se.</string>
+    <string name="txv_realizar_login">Já possui cadastro? Efetue o Login.</string>
+    <string name="btn_cadastrar">Salvar</string>
+
+    <!---Messagens-->
+    <string name="msg_email">Preencha o Campo E-mail!</string>
+    <string name="msg_nome">Preencha o Campo Nome!</string>
+    <string name="msg_senha">Preencha o Campo Senha!</string>
+    <string name="msg_cadastro_sucesso">Cadastro salvo com sucesso!!</string>
+
+    <!--Menus-->
+    <string name="menu_home">Home</string>
+    <string name="menu_lista_albuns">Lista de Albuns</string>
+</resources>
+
