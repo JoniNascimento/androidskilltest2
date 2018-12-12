@@ -1,7 +1,8 @@
-package activity;
+package com.test.joninascimento.cinq.activities;
 
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -10,22 +11,22 @@ import android.widget.Toast;
 
 import com.test.joninascimento.cinq.R;
 
-import dao.UsuarioDao;
-import model.Usuario;
+import com.test.joninascimento.cinq.dao.UsuarioDao;
+import com.test.joninascimento.cinq.model.Usuario;
 
 public class CadastrarActivity extends AppCompatActivity {
 
     private EditText edtEmail, edtNome, edtSenha;
-    private Button btnCadastrar;
+    private Button btnCadastrar, btnExcluir;
     private Usuario usuarioEditar, usuarioNovo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_cadastrar);
 
 
-        trataExtra();
+
 
         edtEmail = (EditText) findViewById(R.id.edtEmailCadastrar);
         edtNome = (EditText) findViewById(R.id.edtNomeCadastrar);
@@ -42,6 +43,17 @@ public class CadastrarActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnExcluir = (Button) findViewById(R.id.btnExcluir);
+        btnExcluir.setVisibility(View.INVISIBLE);
+        btnExcluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deletaUsuario();
+            }
+        });
+
+        trataExtra();
     }
 
     public void trataExtra(){
@@ -50,6 +62,8 @@ public class CadastrarActivity extends AppCompatActivity {
            edtEmail.setText(usuarioEditar.getEmail());
            edtNome.setText(usuarioEditar.getNome());
            edtSenha.setText(usuarioEditar.getSenha());
+           btnExcluir.setVisibility(View.VISIBLE);
+           edtEmail.setEnabled(false);
        }
     }
 
@@ -96,5 +110,31 @@ public class CadastrarActivity extends AppCompatActivity {
                 finish();
             }
         }
+    }
+
+    public void deletaUsuario(){
+
+        if (usuarioEditar != null) {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.titulo_dialogo_del)
+                    .setMessage(R.string.msg_del_usuario)
+                    .setPositiveButton(R.string.opcao_sim, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            UsuarioDao usuarioDao = new UsuarioDao(getApplicationContext());
+                            usuarioDao.deletar(usuarioEditar);
+                            Toast.makeText(CadastrarActivity.this, getString(R.string.msg_del_cadastro_sucesso),Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                    })
+                    .setNegativeButton(R.string.opcao_nao,null).show();
+
+        }
+    }
+
+    @Override
+    protected void onStart() {
+
+        super.onStart();
     }
 }

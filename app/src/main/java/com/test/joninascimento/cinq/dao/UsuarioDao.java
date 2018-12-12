@@ -1,4 +1,4 @@
-package dao;
+package com.test.joninascimento.cinq.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import helper.DbHelper;
-import model.Usuario;
+import com.test.joninascimento.cinq.helper.DbHelper;
+import com.test.joninascimento.cinq.model.Usuario;
 
 public class UsuarioDao implements iUsuarioDao {
 
@@ -31,7 +31,7 @@ public class UsuarioDao implements iUsuarioDao {
         contentValues.put("nome", usuario.getNome());
         contentValues.put("senha", usuario.getSenha());
         try {
-            escrever.insert(DbHelper.NOME_DB, null, contentValues);
+            escrever.insert(DbHelper.TABELA, null, contentValues);
             Log.i("Inserir Info:", "Usuário inserido com Sucesso!!");
             return true;
         }catch (Exception e){
@@ -51,7 +51,7 @@ public class UsuarioDao implements iUsuarioDao {
 
             String[] argumentos = {Integer.toString(usuario.getId())};
 
-            escrever.update(DbHelper.NOME_DB, contentValues, "id=?", argumentos);
+            escrever.update(DbHelper.TABELA, contentValues, "id=?", argumentos);
             Log.i("Inserir Info:", "Usuário Atualizado com Sucesso!!");
             return true;
         }catch (Exception e){
@@ -71,7 +71,7 @@ public class UsuarioDao implements iUsuarioDao {
 
             String[] argumentos = {Integer.toString(usuario.getId())};
 
-            escrever.delete(DbHelper.NOME_DB, "id=?", argumentos);
+            escrever.delete(DbHelper.TABELA, "id=?", argumentos);
             Log.i("Inserir Info:", "Usuário Atualizado com Sucesso!!");
             return true;
         }catch (Exception e){
@@ -108,7 +108,7 @@ public class UsuarioDao implements iUsuarioDao {
 
         Cursor cursor = ler.rawQuery(sql,null);
         cursor.moveToFirst();
-        if (cursor != null){
+        if (cursor.getCount() > 0){
             usuario = new Usuario(cursor.getInt(cursor.getColumnIndex("id")),
                     cursor.getString(cursor.getColumnIndex("email")),
                     cursor.getString(cursor.getColumnIndex("nome")),

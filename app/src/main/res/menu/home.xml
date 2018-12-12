@@ -10,4 +10,9 @@
         android:title="@string/menu_lista_albuns"
         app:showAsAction="ifRoom"/>
 
+    <item
+        android:id="@+id/itemSair"
+        android:title="@string/menu_sair"
+        app:showAsAction="ifRoom"/>
+
 </menu>

@@ -1,4 +1,4 @@
-package model;
+package com.test.joninascimento.cinq.model;
 
 import java.io.Serializable;
 

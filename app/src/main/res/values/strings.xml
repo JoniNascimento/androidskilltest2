@@ -14,9 +14,24 @@
     <string name="msg_nome">Preencha o Campo Nome!</string>
     <string name="msg_senha">Preencha o Campo Senha!</string>
     <string name="msg_cadastro_sucesso">Cadastro salvo com sucesso!!</string>
+    <string name="msg_falha_login">Usuário não encontrado!</string>
+    <string name="msg_sucesso_login">Entrada efetuada com Sucesso!</string>
+    <string name="msg_del_cadastro_sucesso">Cadastro excluído com sucesso!!</string>
+    <string name="msg_del_usuario">Você está prestes a Excluir um usuário, deseja continuar?</string>
+
+    <!---titulos-->
+    <string name="titulo_dialogo_del">Excluir Registro</string>
+
+
+    <!---opcoes-->
+    <string name="opcao_sim">Sim</string>
+    <string name="opcao_nao">Não</string>
 
     <!--Menus-->
     <string name="menu_home">Home</string>
     <string name="menu_lista_albuns">Lista de Albuns</string>
+    <string name="title_activity_home">Home</string>
+    <string name="menu_sair">Sair</string>
+    <string name="btn_excluir">Excluir</string>
 </resources>
 

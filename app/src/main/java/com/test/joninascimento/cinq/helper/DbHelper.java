@@ -1,4 +1,4 @@
-package helper;
+package com.test.joninascimento.cinq.helper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

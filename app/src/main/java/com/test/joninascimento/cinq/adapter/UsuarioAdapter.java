@@ -1,4 +1,4 @@
-package adapter;
+package com.test.joninascimento.cinq.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import com.test.joninascimento.cinq.R;
 
 import java.util.List;
 
-import model.Usuario;
+import com.test.joninascimento.cinq.model.Usuario;
 
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHolder> {
 

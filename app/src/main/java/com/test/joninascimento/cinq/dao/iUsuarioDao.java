@@ -1,8 +1,8 @@
-package dao;
+package com.test.joninascimento.cinq.dao;
 
 import java.util.List;
 
-import model.Usuario;
+import com.test.joninascimento.cinq.model.Usuario;
 
 public interface iUsuarioDao {
 
